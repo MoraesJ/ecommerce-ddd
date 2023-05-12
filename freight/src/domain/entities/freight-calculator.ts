@@ -6,11 +6,15 @@ export interface DimensionsInput {
 }
 
 export default class FreightCalculator {
-  static calculate(dimensionsInput: DimensionsInput, quantity: number = 1) {
+  static calculate(
+    distance: number,
+    dimensionsInput: DimensionsInput,
+    quantity: number = 1
+  ) {
     const { width, height, length, weight } = dimensionsInput
     const volume = (width / 100) * (height / 100) * (length / 100)
     const density = weight / volume
-    const itemFreight = 1000 * volume * (density / 100)
+    const itemFreight = distance * volume * (density / 100)
     return Math.max(itemFreight, 10) * quantity
   }
 }

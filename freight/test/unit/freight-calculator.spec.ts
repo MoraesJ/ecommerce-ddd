@@ -1,7 +1,7 @@
 import FreightCalculator from '../../src/domain/entities/freight-calculator'
 
 test('Deve calcular o frete do produto de um item com quantidade 1', function () {
-  const freight = FreightCalculator.calculate({
+  const freight = FreightCalculator.calculate(1000, {
     height: 30,
     length: 10,
     weight: 3,
@@ -12,6 +12,7 @@ test('Deve calcular o frete do produto de um item com quantidade 1', function ()
 
 test('Deve calcular o frete do produto com quantidade 3', function () {
   const freight = FreightCalculator.calculate(
+    1000,
     {
       height: 30,
       length: 10,
@@ -24,7 +25,7 @@ test('Deve calcular o frete do produto com quantidade 3', function () {
 })
 
 test('Deve calcular o frete do produto com preço mínimo', function () {
-  const freight = FreightCalculator.calculate({
+  const freight = FreightCalculator.calculate(1000, {
     height: 10,
     length: 10,
     width: 10,
